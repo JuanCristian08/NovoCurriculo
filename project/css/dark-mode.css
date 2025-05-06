@@ -1,0 +1,88 @@
+/* Dark mode styles */
+
+body.dark-mode {
+  --color-background: var(--color-gray-900);
+  --color-background-alt: var(--color-gray-800);
+  --color-text: var(--color-gray-100);
+  --color-text-secondary: var(--color-gray-400);
+  --color-border: var(--color-gray-700);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .tech-tag {
+  background-color: var(--color-gray-700);
+  color: var(--color-gray-300);
+}
+
+body.dark-mode .tech-tag:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+body.dark-mode .card {
+  background-color: var(--color-background-alt);
+}
+
+body.dark-mode .skill-progress {
+  background-color: var(--color-gray-700);
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-700);
+  color: var(--color-text);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+  border-color: var(--color-primary);
+}
+
+body.dark-mode .circle {
+  background-color: var(--color-gray-700);
+}
+
+body.dark-mode .footer {
+  background-color: var(--color-gray-900);
+  border-top: 1px solid var(--color-gray-800);
+}
+
+/* Dark mode transition */
+body,
+.header,
+.card,
+.tech-tag,
+input,
+textarea,
+.skill-progress,
+.circle,
+.footer {
+  transition: background-color var(--transition-base),
+              color var(--transition-base),
+              border-color var(--transition-base);
+}
+
+/* Create a flashlight effect when dark mode is active */
+.dark-mode {
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode::after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.03;
+  background: radial-gradient(
+    circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 20%
+  );
+}

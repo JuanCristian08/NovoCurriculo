@@ -1,0 +1,159 @@
+/* Print styles */
+
+@media print {
+  /* Hide unnecessary elements */
+  .header,
+  .nav,
+  .hero-cta,
+  .scroll-indicator,
+  #back-to-top,
+  #theme-toggle,
+  .mobile-menu-btn,
+  .contact-form,
+  .footer {
+    display: none !important;
+  }
+  
+  /* Reset spacing and sizing */
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  main {
+    padding-top: 0;
+  }
+  
+  .container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Adjust sections for print */
+  .section {
+    padding: 20pt 0;
+    page-break-inside: avoid;
+  }
+  
+  /* Hero section styles for print */
+  .hero {
+    min-height: auto;
+    padding: 0 0 20pt 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20pt;
+  }
+  
+  .hero-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 20pt;
+  }
+  
+  .profile-image {
+    width: 100pt;
+    height: 100pt;
+    margin-bottom: 0;
+  }
+  
+  .hero-text {
+    text-align: left;
+  }
+  
+  /* Card styles for print */
+  .card {
+    box-shadow: none;
+    border: 1pt solid #ccc;
+    break-inside: avoid;
+  }
+  
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Timeline for print */
+  .timeline::before {
+    left: 10pt;
+  }
+  
+  .timeline-marker {
+    left: -20pt;
+  }
+  
+  /* Ensure page breaks don't occur within elements */
+  h1, h2, h3, h4,
+  .skill-item,
+  .soft-skill-item,
+  .language-item,
+  .timeline-item {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+  
+  /* Modify links for print */
+  a, a:visited {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  /* Add URL information to links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    color: #444;
+  }
+  
+  /* But not for internal links */
+  a[href^="#"]:after {
+    content: "";
+  }
+  
+  /* Adjust specific components for print */
+  .skill-progress-bar {
+    background-color: #000;
+    border: 1pt solid #000;
+  }
+  
+  .circle.filled {
+    background-color: #000;
+  }
+  
+  /* Contact Info section visibility */
+  .contact-info {
+    display: block;
+  }
+  
+  .contact-item i {
+    background: none;
+    color: #000;
+  }
+  
+  .social-link {
+    background: none;
+    color: #000;
+  }
+  
+  /* Show print-only elements */
+  .print-only {
+    display: block;
+  }
+  
+  /* Headers and footers for each page */
+  @page {
+    margin: 2cm;
+  }
+  
+  /* First page has no header */
+  @page :first {
+    margin-top: 0;
+  }
+}
